@@ -11,15 +11,21 @@ function App() {
 
   const [imageData, setImageData] = useState('');
 
-  useEffect(() => {
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
+  const updateImage = (opt) => { 
+     axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY${opt}`)
       .then(res => {
         console.log(res);
-        setImageData(res.data);
+        if (res.data.media_type==='image') {setImageData(res.data);}
+        else updateImage(`&date=2012-03-14`);
         })
       .catch(err => {
         console.error(err);
         })
+          }
+
+
+  useEffect(() => {
+      updateImage();
     }, []);
 
   console.log(imageData.hdurl);
