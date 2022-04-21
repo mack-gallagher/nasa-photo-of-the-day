@@ -25,7 +25,7 @@ function App() {
 
 
   useEffect(() => {
-      updateImage();
+      updateImage('');
     }, []);
 
   console.log(imageData.hdurl);
