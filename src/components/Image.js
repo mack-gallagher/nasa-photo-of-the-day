@@ -1,4 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+
+const StyledImage = styled.img`
+    width: 80%;
+    margin: 10% auto;
+    border: 1px solid ${props => props.theme.accentColor};
+    border-radius: 10px;
+`
 
 function Image(props) {
 
@@ -6,7 +14,7 @@ function Image(props) {
 
   return (
     <div className="image">
-      <img src={src} />
+      <StyledImage src={src} />
     </div>
     )
 

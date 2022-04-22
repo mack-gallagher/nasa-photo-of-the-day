@@ -1,21 +1,47 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 
-const StyledCaption = styled.div`
+const StyledInfoBox = styled.div`
   width: 80%;
-  background-color: rgba(4,10,17,10%);
-  border: 1px solid cyan;
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const StyledCaption = styled.p`
+  width: 100%;
+  border: 1px solid ${props => props.theme.accentColor};
+  border-radius: 10px;
+  font-family: ${props => props.theme.defaultFont};
+  background-color: ${props => props.theme.black};
+  padding: 3%;
+`
+const StyledTitle = styled.h4`
+  width: 100%;
+  border: 1px solid ${props => props.theme.accentColor};
+  border-radius: 10px;
+  font-family: ${props => props.theme.defaultFont};
+  background-color: ${props => props.theme.black};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: ${props => props.theme.defaultFont};
+  font-size: 1.5rem;
+  line-height: 3rem;
+  height: 3rem;
+  padding: 3%;
 `
 
 function Caption(props) {
   const { title, explanation } = props;
 
   return (
-    <StyledCaption>
-      <h4>{title}</h4>
-      <p>{explanation}</p>
-    </StyledCaption>
+    <StyledInfoBox>
+      <StyledTitle>{title}</StyledTitle>
+      <StyledCaption>{explanation}</StyledCaption>
+    </StyledInfoBox>
   )
 
 }
